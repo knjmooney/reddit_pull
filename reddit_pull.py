@@ -6,11 +6,10 @@ import json
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--foo', help='foo help')
+parser.add_argument('--url', help='url of subreddit')
 args = parser.parse_args()
 
-
-r = requests.get(r'http://www.reddit.com/r/worldnews/.json',
+r = requests.get(args.url + '/.json',
                  headers = {'User-agent': 'your bot 0.1'})
 
 if r.ok:
