@@ -3,6 +3,12 @@
 from pprint import pprint
 import requests
 import json
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--foo', help='foo help')
+args = parser.parse_args()
+
 
 r = requests.get(r'http://www.reddit.com/r/worldnews/.json',
                  headers = {'User-agent': 'your bot 0.1'})
