@@ -20,7 +20,6 @@ if args.url:
 response = requests.get(subreddit + '.json',
                         headers = {'User-agent': 'your bot 0.1'})
 
-
 if response.ok:
     print "Download successful"
 else:
