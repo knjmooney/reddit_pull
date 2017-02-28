@@ -1,3 +1,3 @@
 # reddit_pull
 
-Sexy authors Kegin and Anana
+Sexy authors Kegin, Anana and Frank Reginald Norton Chambers
