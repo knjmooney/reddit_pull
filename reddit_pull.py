@@ -21,8 +21,8 @@ subreddit_url = "https://www.reddit.com/r/" + args.subreddit + '/'
 # Request page from reddit
 response = requests.get(subreddit_url + '.json',
                         headers = {'User-agent': 'your bot 0.1'})
-if not response.ok:
     # print "Download successful from", urlparse.urljoin(subreddit_url, '.json')
+if not response.ok:
 # else:
     print "Error ", response.status_code
     exit(response.status_code)
