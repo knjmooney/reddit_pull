@@ -57,4 +57,6 @@ ${color2}${font ubuntu:size=9}${time %b}
 ${color3}${font ubuntu:size=12}${time %Y}
 
 
-${color4}${font ubuntu:size=9}${execi 10 python /home/frank/Documents/reddit_pull/reddit_pull.py}
+${color4}${font ubuntu:size=9}${execi 10 python /home/frank/Documents/reddit_pull/reddit_pull.py --subreddit cpp --number 3}
+
+
