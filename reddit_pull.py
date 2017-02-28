@@ -15,21 +15,21 @@ args = parser.parse_args()
 subreddit_url = 'https://www.reddit.com/'
 
 if args.subreddit:
-    subreddit_url = urlparse.urljoin("https://www.reddit.com/r/", args.subreddit)
+    subreddit_url = "https://www.reddit.com/r/" + args.subreddit + '/'
 
 response = requests.get(urlparse.urljoin(subreddit_url, '.json'),
                         headers = {'User-agent': 'your bot 0.1'})
 
 
 if response.ok:
-    print "Download successful from", subreddit_url
+    print "Download successful from", urlparse.urljoin(subreddit_url, '.json')
 else:
     print "Error ", response.status_code
     exit(response.status_code)
 
 data = response.json()
 
-pprint(data['data']['children'][0]['data'])
+# pprint(data['data']['children'][0]['data'])
 
 for i in range(0,3):
     print data['data']['children'][i]['data']['title']
