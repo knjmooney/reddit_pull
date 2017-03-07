@@ -8,10 +8,9 @@ import urlparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--subreddit', help='Name of subreddit', default='popular')
-parser.add_argument('--filename' , help='File to print output to',
-                    default='pull_output.txt')
 parser.add_argument('--number' , help='Number of files to download',
                     default=1, type=int)
+parser.add_argument('--filename' , help='File to print output to')
 
 args = parser.parse_args()
 
@@ -31,5 +30,7 @@ if not response.ok:
 data = response.json()
 output_filehandle = open(args.filename, 'w+')
 for i in range(0,args.number):
-    # print >> output_filehandle, data['data']['children'][i]['data']['title']
-    print data['data']['children'][i]['data']['title'],'\n'
+    if args.filename is not None:
+        print >> output_filehandle, data['data']['children'][i]['data']['title']
+    else:
+        print data['data']['children'][i]['data']['title'],'\n'
