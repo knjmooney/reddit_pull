@@ -29,7 +29,8 @@ if not response.ok:
 
 # Parse and print to file
 data = response.json()
-output_filehandle = open(args.filename, 'w+')
+if args.filename is not None:
+    output_filehandle = open(args.filename, 'w+')
 for i in range(0,args.number):
     if args.filename is not None:
         print >> output_filehandle, data['data']['children'][i]['data']['title']
