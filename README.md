@@ -13,5 +13,7 @@ ln -s /path/to/reddit_pull.py ~/bin/reddit_pull
 
 ## Authors
 Kegin
+
 Anana
+
 Frank Reginald Norton Chambers
