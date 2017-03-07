@@ -55,3 +55,4 @@ TEXT
 # $ ln -s path/to/reddit_pull ~/bin/reddit_pull
 # If this doesn't work, make sure '~/bin' is in your path 
 ${color2}${font ubuntu:size=9}${execi 10 reddit_pull --subreddit worldnews --number 3 | fold -s -w 50}
+
