@@ -1,10 +1,9 @@
 #!/usr/bin/python
 
-from pprint import pprint
-import requests
-import json
 import argparse
-import urlparse
+import json
+import requests
+import sys
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--subreddit', help='Name of subreddit', default='popular')
@@ -24,15 +23,13 @@ response = requests.get(subreddit_url + '.json',
 if not response.ok:
     print "Error ", response.status_code
     exit(response.status_code)
-# else:
-#     print "Download successful from", urlparse.urljoin(subreddit_url, '.json')
 
 # Parse and print to file
 data = response.json()
 if args.filename is not None:
     output_filehandle = open(args.filename, 'w+')
+else:
+    output_filehandle = sys.stdout
+
 for i in range(0,args.number):
-    if args.filename is not None:
-        print >> output_filehandle, data['data']['children'][i]['data']['title']
-    else:
-        print data['data']['children'][i]['data']['title'],'\n'
+    print >> output_filehandle, data['data']['children'][i]['data']['title'], '\n'
