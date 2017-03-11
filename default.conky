@@ -1,6 +1,6 @@
 # ==============================================================================
 #                                 conkyrc_grey
-#				http://www.NoobsLab.com
+#                            http://www.NoobsLab.com
 #  author  : SLK
 #  version : v2011011601
 #  license : Distributed under the terms of GNU GPL version 2 or later
@@ -48,11 +48,12 @@ color2 AAAAAA
 color3 888888
 color4 666666
 
-TEXT
-
 # This requires that reddit_pull is in your path, you can add it using
 # $ mkdir ~/bin
 # $ ln -s path/to/reddit_pull ~/bin/reddit_pull
-# If this doesn't work, make sure '~/bin' is in your path 
-${color2}${font ubuntu:size=9}${execi 10 reddit_pull --subreddit worldnews --number 3 | fold -s -w 50}
+# If this doesn't work, make sure '~/bin' is in your path
+TEXT
+${time %a, %d %b %Y}
 
+${color2}${font ubuntu:size=9}${exec cat /tmp/reddit_pull.output | fold -s -w 50}
+${execi 10 reddit_pull --subreddit worldnews --number 4 --filename /tmp/reddit_pull.output}
