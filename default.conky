@@ -50,7 +50,7 @@ conky.config = {
 
    -- default_color FFFFFF
    -- color1 DDDDDD
-   -- color2 AAAAAA
+   color2 = 'AAAAAA',
    -- color3 888888
    -- color4 666666
 }
@@ -62,6 +62,6 @@ conky.config = {
 conky.text = [[
 ${time %a, %d %b %Y}
 
-${font ubuntu:size=9}${exec cat /tmp/reddit_pull.output | fold -s -w 50}
+${color2}${font ubuntu:size=9}${exec cat /tmp/reddit_pull.output | fold -s -w 50}
 ${execi 10 reddit_pull --subreddit worldnews --number 4 --filename /tmp/reddit_pull.output}
 ]]

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import argparse
 import json
@@ -27,7 +27,7 @@ def rp_get_list_of_subreddit_titles(subreddit_name, number_to_download):
                         headers = {'User-agent': 'your bot 0.1'})
 
     if not response.ok:
-        print "Error ", response.status_code
+        print ("Error ", response.status_code)
         exit(response.status_code)
 
     # Parse and print to file
@@ -48,13 +48,18 @@ def main():
     subreddit_titles = rp_get_list_of_subreddit_titles(args.subreddit,
                                                        args.number)
 
-    if args.filename is not None:
-        output_filehandle = open(args.filename, 'w+')
-    else:
+    if args.filename is None:
         output_filehandle = sys.stdout
+    else:
+        # Must set encoding to utf8 in order to print special
+        # characters to file
+        output_filehandle = open(args.filename,
+                                 mode = 'w',
+                                 encoding = 'utf8')
 
-    for i in range(0,args.number):
-        print >> output_filehandle, subreddit_titles[i], '\n'
+    output_text = '\n\n'.join(subreddit_titles)
+    output_filehandle.write(output_text)
+    output_filehandle.write('\n')
 
 # This is to stop main being run if script is imported into an
 # interactive session. (Well I think that's what it does)
