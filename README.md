@@ -28,10 +28,3 @@ This is designed for conky v1.10+. The conky config is now written in
 Lua. The Sourceforge page seems to be out of date (conky v1.8). Use
 the [github wiki](https://github.com/brndnmtthws/conky/wiki/) to read
 up on the current syntax. Also see `man conky` in your shell.
-
-## Authors
-Kegin
-
-Anana
-
-Frank Reginald Norton Chambers
